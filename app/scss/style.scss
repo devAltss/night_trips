@@ -1,6 +1,12 @@
 @import "vars";
 @import "fonts";
-@import "reset";
 @import "libs";
 @import "global";
 @import "normalize";
+
+
+.header{
+  background: url(../images/header-bg.jpg) fixed no-repeat center top / cover;
+}
+
+

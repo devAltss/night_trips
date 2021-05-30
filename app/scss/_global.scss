@@ -3,6 +3,16 @@ body {
 	height: 100%;
 }
 
+body{
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 25px;
+  color: $text;
+  //overflow: hidden;
+  min-width: 320px;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -12,6 +22,7 @@ body {
 .main {
 	flex: 1 0 auto;
 }
+
 .footer {
 	flex: 0 0 auto;
 }
@@ -22,6 +33,30 @@ body {
   padding: 0 15px;
 }
 
+h1, h2, h3, h4, h5, h6{
+  @extend %title_font;
+}
+
+a, a:hover, a:active {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn {
+	font-size: 13px;
+	font-family: 'Museo Sans 700';
+	color: #fff;
+	background: #1cb883;
+	width: 156px;
+	padding: 7px 0;
+	border-radius: 0;
+	box-shadow: none;
+	display: block;
+  &:hover{
+    color: #46e6b0;
+    background: #149d6f;
+  }
+}
 
 
 
