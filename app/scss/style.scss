@@ -105,6 +105,7 @@
 // ---- end header
 .main {
   background: $bg url(../images/bg-light.svg) no-repeat center top / cover;
+  //background-color: #011627;
 }
 // ----start pick
 .pick {
@@ -228,7 +229,8 @@
   margin-right: 2px;
 }
 
-.pick__social {
+.pick__social,
+.footer__social {
   display: flex;
   width: 118px;
   justify-content: space-between;
@@ -252,17 +254,27 @@
     right: -15px;
     background: $decor;
   }
-
 }
 // ---- end pick
 // ---- start about
 .about{
   padding: 100px 0;
   &__wrapper{
-    display: flex; 
+    display: flex;
+    position: relative; 
+    &::after{
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 470px;
+      //padding: 4px;
+      top: 160px;
+      right: 54px;
+      background: url(../images/dots-about.svg) no-repeat;
+    }
   }
   &__content{
-    width: 365px;
+    width: 630px;
     margin-right: 70px;
   }
   &__title{
@@ -282,45 +294,259 @@
 }
 
 .about-staff{
+  display: flex;
+  flex-wrap: wrap;
   &__item{
     width: 395px;
     height: 395px;
     position: relative;
-  }
-  &__info{
-    position: absolute;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $bg;
+      opacity: .8;
+      transition: all .3s ease;
+    }
+  }  
+  &__images{
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    background-color: $bg;
-    opacity: .8;
-    &:hover{
-      opacity: 0;
-      .about-staff__link{
-        opacity: 1;
-      }
-    }
   }
   &__link{
+    position: absolute;
+    z-index: 1;
+    bottom: 80px;
+    left: -40px;
     font-weight: 700;
     font-size: 15px;
     color: #000;
-    width: 186px;
+    //width: 186px;
     background: #fff;
     text-align: center;
-    padding: 26px 0;
+    padding: 26px 30px;
     box-shadow: 5px 15px 40px rgba(0, 201, 224, 0.2);
     border-radius: 8px;
-    margin: 240px 0 0 -50px;
+    //cursor: pointer;
     text-transform: uppercase;
-    opacity: 0;
+    display: none;
     & span{
-      color: #00ace0;
+      color: $button;
+    }
+  }
+}
+.about-staff__item:hover:after{
+  opacity: 0; 
+}
+.about-staff__item:hover{
+.about-staff__link{
+    display: block;
+  }
+}
+
+// ---- end about
+// ---- start thoughts
+.thoughts{
+  padding: 130px 0 0;
+  //background-color: $bg;
+  &__wrapper{
+    padding: 100px 200px;
+    max-width: 1680px;
+    background: #011627;
+    border-radius: 8px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      top: -40px;
+      left: 50%;
+      background: linear-gradient(180deg, #09F4F4 0%, #00C9E0 100%);
+      border-radius: 13px;
+    }
+  }
+  &__title{
+    margin-bottom: 25px;
+  }
+  &__subtitle{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+  &__items{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;  
+  }
+}
+
+.thoughts__item{
+  width: 510px;
+  background: #02223B;
+  box-shadow: 0px 20px 30px rgba(0, 201, 224, 0.03);
+  border-radius: 5px;
+  padding: 60px 74px 60px 102px;
+  text-align: left;
+  margin: 12px;
+  &-title{
+    position: relative;
+    width: 300px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 34px;
+    margin-bottom: 18px;
+    &::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 52px;
+      background: url(../images/quotes.svg) no-repeat;
+    }
+  }
+  &-text{
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: 0.1em;
+    margin-bottom: 25px;
+  }
+  
+}
+.thoughts__item-info{
+  width: 320px;
+  display: flex;
+  align-items: center;
+  &-images{
+    width: 80px;
+    height: 80px; 
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  &-text{
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.17em;
+    line-height: 1.9em;
+    span{
+      display: block;
+      font-weight: 700;
+    }
+  } 
+}
+// ---- end thoughts
+// ---- start see
+.see{
+padding: 15px 0 180px;
+  &__inner{
+    margin: 0 auto;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      bottom: -170px;
+      left: 50%;
+      background: linear-gradient(180deg, #09F4F4 0%, #00C9E0 100%);
+      border-radius: 13px;
+    }
+  }
+  &__inner-subtitle{
+    width: 430px;
+    margin: 25px auto 0;
+    letter-spacing: 0.07em;
+    line-height: 1.5em;
+  }
+}
+// ---- end see
+// ---- start footer
+.footer{
+  background-color: $bg;
+  
+  &__content{
+    padding: 90px 0 50px;
+  }
+  &__inner{
+    max-width: 1034px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+.footer__item{
+  max-width: 150px;
+  &-title{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 1px;
+      background: $decor;
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 51px;
+      width: 5px;
+      height: 5px;
+      border: 1px solid $decor;
+      transform: rotate(45deg);
     }
   }
 }
 
+.footer__item-list{
+  a{
+   margin-bottom: 18px;
+   color: $text; 
+  }
+}
+
+.footer__social{
+  margin: 0;
+  &::after{
+    content: none;
+  }
+  &::before{
+    content: none;
+  }
+}
+
+
+.footer__copy{
+  padding: 30px 0 150px;
+  text-align: center;
+  &-text{
+    font-size: 15px;
+    margin-bottom: 40px; 
+  }
+}
+// ---- end footer
+
+
+@import 'media';
 
 
 
@@ -330,4 +556,5 @@
 
 
 
-// ---- end about
+
+

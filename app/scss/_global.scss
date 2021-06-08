@@ -1,6 +1,17 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 html,
 body {
 	height: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 
 body{
@@ -9,7 +20,7 @@ body{
   font-size: 16px;
   line-height: 1.2em;
   color: $text;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   min-width: 320px;
 }
 
@@ -22,7 +33,7 @@ body{
 .main {
 	flex: 1 0 auto;
   //background-color: #011627;
-  height: 3000px;
+  //height: 3000px;
 }
 
 .footer {
@@ -35,13 +46,28 @@ body{
   padding: 0 15px;
 }
 
+.container-fluid {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
 h1, h2, h3, h4, h5, h6{
   @extend %title-font;
   margin: 0;
+  line-height: 1.2em;
 }
 
 h2{
   font-size: 72px;
+}
+
+h4{
+  font-size: 24px;
+}
+
+h6{
+  font-size: 18px;
 }
 
 p {
@@ -88,7 +114,7 @@ button, button:hover, button:focus, button:active
   cursor: pointer;
   &:hover{
     color: #fff;
-    background: #00ace0;
+    background: #0483aa;
   }
 }
 
