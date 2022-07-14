@@ -25,10 +25,10 @@ $(function () {
       //dots:true,
       dotsEach:true,
       responsive:{
-          0:{
+          320:{
               items:1
           },
-          600:{
+          650:{
               items:1
           },
           1000:{
