@@ -1,6 +1,6 @@
 const { src, dest, watch, parallel, series }  = require('gulp');
 
-const scss          = require('gulp-sass');
+const scss          = require('gulp-sass')(require('sass'));
 const concat        = require('gulp-concat');
 const browserSync   = require('browser-sync').create();
 const uglify        = require('gulp-uglify-es').default;
@@ -53,15 +53,27 @@ function scripts() {
 
 function styles() {
   return src('app/scss/style.scss')
-      .pipe(scss({outputStyle: 'compressed'}))
+      .pipe(scss({outputStyle: 'expanded'}))
       .pipe(concat('style.min.css'))
       .pipe(autoprefixer({
-        overrideBrowserslist: ['last 10 version'],
+        overrideBrowserslist: ['last 8 version'],
         grid: true
       }))
       .pipe(dest('app/css'))
       .pipe(browserSync.stream())
 }
+
+// function styles() {
+//   return src('app/scss/style.scss')
+//       .pipe(scss({outputStyle: 'compressed'}))
+//       .pipe(concat('style.min.css'))
+//       .pipe(autoprefixer({
+//         overrideBrowserslist: ['last 10 version'],
+//         grid: true
+//       }))
+//       .pipe(dest('app/css'))
+//       .pipe(browserSync.stream())
+// }
 
 function build() {
   return src([

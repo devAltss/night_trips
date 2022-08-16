@@ -38,4 +38,7 @@ $(function () {
   })
 
 
-})
+});
+
+//new WOW().init();
+AOS.init();
